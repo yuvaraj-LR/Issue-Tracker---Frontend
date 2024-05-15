@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter";
+}
+
+button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 2px solid #aaaaaa;
+    background-color: transparent;
+    padding: 5px 0;
+}
+
+button:hover {
+    border: 2px solid #555;
+}
+
+input {
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #777;
+    width: 100%;
+    margin: 25px auto;
+    font-size: 1.3rem;
+    padding-left: 5px;
+    color: #292929;
+    font-weight: 100;
+}
+
+input::placeholder {
+    text-transform: uppercase;
+    font-weight: 100;
+    color: #bbbbbb;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    line-height: 1rem;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex_row {
+    flex-direction: row;
+}
+
+.flex_col {
+    flex-direction: column;
+}
+
+.flex_center {
+    justify-content: center;
+    align-items: center;
+}
+
+.flex_space_between {
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.flex_gap_10 {
+    gap: 10px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.my-auto  {
+    margin: auto;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-5 {
+    padding: 5px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100vh;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.isMob {
+    display: block;
+}
+
+.isTab {
+    display: none;
+}
+
+.isLap {
+    display: none;
+}
+
+.white-color {
+    color: #fff;
+}
+
+@media(min-width: 1200px) {
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+        font-weight: 300;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        color: #606060;
+    }
+
+    .isMob {
+        display: none;
+    }
+    
+    .isTab {
+        display: none;
+    }
+    
+    .isLap {
+        display: block;
+    }
+}
