@@ -1,11 +1,15 @@
+:root {
+    --primary--color: #5e30d5;
+    --secondary-color: #331A76;
+    --third-color: #F1ECFF;
+    --text-light-color: #C1B3E8;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: "Inter";
+    font-family: "Poppins", sans-serif;
 }
 
 button {
@@ -14,35 +18,32 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    font-size: 1.2rem;
+    font-size: 20px;
     border-radius: 5px;
-    border: 2px solid #aaaaaa;
-    background-color: transparent;
+    border: 0;
+    background-color: var(--primary--color);
     padding: 5px 0;
 }
 
 button:hover {
-    border: 2px solid #555;
+    background-color: var(--secondary-color);
 }
 
 input {
-    background-color: transparent;
+    background-color: var(--third-color);
     border: 0;
     outline: 0;
-    border-bottom: 2px solid #777;
     width: 100%;
     margin: 25px auto;
     font-size: 1.3rem;
-    padding-left: 5px;
-    color: #292929;
+    color: var(--text-light-color);
     font-weight: 100;
 }
 
 input::placeholder {
     text-transform: uppercase;
     font-weight: 100;
-    color: #bbbbbb;
+    color: var(--text-light-color);
 }
 
 a {
@@ -91,10 +92,6 @@ p {
 
 .p-0 {
     padding: 0;
-}
-
-.p-5 {
-    padding: 5px;
 }
 
 .w-100 {
@@ -151,7 +148,6 @@ p {
 
     h4 {
         font-size: 1.2rem;
-        color: #606060;
     }
 
     .isMob {
