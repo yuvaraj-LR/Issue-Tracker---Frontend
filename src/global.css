@@ -19,10 +19,14 @@ button {
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 7px;
     border: 0;
     background-color: var(--primary--color);
-    padding: 5px 0;
+    color: #fff;
+    padding: 5px 20px;
+    font-weight: 600;
+    transition: background-color .15s ease-in;
+    cursor: pointer;
 }
 
 button:hover {
@@ -30,20 +34,18 @@ button:hover {
 }
 
 input {
-    background-color: var(--third-color);
     border: 0;
     outline: 0;
     width: 100%;
-    margin: 25px auto;
+    background-color: transparent;
     font-size: 1.3rem;
-    color: var(--text-light-color);
-    font-weight: 100;
+    color: #333;
+    padding-inline: 20px;
 }
 
 input::placeholder {
-    text-transform: uppercase;
-    font-weight: 100;
-    color: var(--text-light-color);
+    font-weight: 500;
+    color: #d2c0ff;
 }
 
 a {
@@ -75,7 +77,6 @@ p {
 
 .flex_space_between {
     justify-content: space-between;
-    height: 100vh;
 }
 
 .flex_gap_10 {
@@ -87,7 +88,7 @@ p {
 }
 
 .my-auto  {
-    margin: auto;
+    margin-inline: auto;
 }
 
 .p-0 {
@@ -114,20 +115,30 @@ p {
     display: none;
 }
 
-.isMob {
+.onlyForMob {
     display: block;
 }
 
-.isTab {
+.onlyForLap {
     display: none;
 }
 
-.isLap {
+.hideForMob {
     display: none;
 }
 
-.white-color {
-    color: #fff;
+.pointer {
+    cursor: pointer;
+}
+
+@media(min-width: 768px) {
+    .onlyForMob {
+        display: none;
+    }
+
+    .hideForMob {
+        display: block;
+    }
 }
 
 @media(min-width: 1200px) {
@@ -137,28 +148,19 @@ p {
     }
 
     h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     h3 {
         font-size: 1.5rem;
         line-height: 1.8rem;
-        font-weight: 300;
     }
 
     h4 {
         font-size: 1.2rem;
     }
 
-    .isMob {
-        display: none;
-    }
-    
-    .isTab {
-        display: none;
-    }
-    
-    .isLap {
+    .onlyForLap {
         display: block;
     }
 }
