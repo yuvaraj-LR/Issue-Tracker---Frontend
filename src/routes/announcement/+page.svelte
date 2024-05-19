@@ -1,0 +1,1 @@
+<h1>I am announcement page.</h1>

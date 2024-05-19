@@ -2,8 +2,8 @@
 
 </script>
 
-<section class="container">
-    
+<section>
+    <h1>I am home page...</h1>
 </section>
 
 <style>

@@ -58,7 +58,15 @@
                         <img src="/icons/setting-icon.svg" alt="settings-icon">
                     </div>
                 </div>
+
+                <div class="flex flex_center flex_space_between input logout">
+                    <input type="text" value="Logout" disabled> 
+                    <span>
+                        <img src="/icons/sign-out-icon.svg" alt="signout" style="margin-top: 5px;">
+                    </span>
+                </div>
             </div>
+            
 
             <script>
                 function onclickhamburger() {
@@ -137,6 +145,7 @@
         padding: 15px;
         width: 100%;
         transition: all 3s ease-out;
+        z-index: 5;
     }
 
     .mob_bg {

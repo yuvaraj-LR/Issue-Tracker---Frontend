@@ -52,6 +52,7 @@ a {
     text-decoration: none;
     font-size: 1.2rem;
     line-height: 1rem;
+    color: #333;
 }
 
 p {
@@ -127,6 +128,10 @@ p {
     display: none;
 }
 
+.uptoTab {
+    display: block;
+}
+
 .pointer {
     cursor: pointer;
 }
@@ -162,5 +167,9 @@ p {
 
     .onlyForLap {
         display: block;
+    }
+
+    .uptoTab {
+        display: none;
     }
 }
