@@ -1,11 +1,89 @@
 <script>
-
+    export let projectName;
+    export let creationDate;
+    export let authorName;
+    export let projectDesp;
+    export let totalNumberOfIssues;
+    export let projectId;
 </script>
 
-<section class="card">
-    I am project card.
+<section class="flex flex_col flex_wrap card">
+    <div class="flex flex_row flex_center flex_space_between project_title">
+        <h3>{projectName}</h3>
+        <h4 class="date_color normaler">{creationDate}</h4>
+    </div>
+
+    <div class="flex flex_row project_author">
+        <span><p>Created By&nbsp;</p></span>
+        <span><h4 class="bolder">{authorName}</h4></span>
+    </div>
+
+    <div class="flex flex_wrap project_desc">
+        <p class="project_desp">{projectDesp}</p>
+    </div>
+
+    <div class="flex flex_row total_issues">
+        <span><h4 class="light">Total issues:&nbsp; </h4></span>
+        <span><h4>{totalNumberOfIssues}</h4></span>
+    </div>
+
+    <div class="flex flex_row flex_gap_10 actionBtns">
+        <a href="/issues?projectId={projectId}" class="w-100">
+            <button class="view_btn">View Issue</button>
+        </a>
+
+        <form action="" method="post">
+            <img src="/icons/delete-icon.svg" alt="delete-icon" class="delete" id="delete">
+        </form>
+    </div>
+
 </section>
 
 <style>
+
+    .card {
+        max-width: 480px;
+        padding: 25px;
+        border: 1px solid #fff;
+        background-color: #fff;
+        margin: 20px;
+        border-radius: 20px;
+        gap: 20px;
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    }
+    
+    .card:hover {
+        transform: scale(1.02);
+        border: 1px solid #F1ECFF;
+    }
+
+    .project_author {
+        align-items: center;
+    }
+
+    .view_btn {
+        padding: 10px;
+    }
+
+    .delete {
+        filter: grayscale(0);
+    }
+
+    .delete:hover {
+        filter: grayscale(100);
+    }
+
+    .total_issues {
+        align-items: end;
+    }
+
+    .project_desp {
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
 
 </style>

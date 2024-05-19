@@ -63,37 +63,40 @@
     </div>
 
     <div class="onlyForLap flex flex_col desktop_navbar">
-        <div class="category_lap">
-            {#each SideNavBarData as data}
-                <a href="{data?.href}">
-                    <div class="flex flex_row sidenav_content">
-                        <img src="{data?.imgsrc}" alt="{data?.title}">
-                        <p>{data?.title}</p>
-                    </div>
-                </a>
-            {/each}
-        </div>
-        <div class="pinned_project_lap">
-            <h3>Pinned Project</h3>
-            {#each PinnedProject as data}
-                <a href="{data?.href}">
-                    <div class="flex flex_row flex_space_between sidenav_content">
-                        <p>{data?.title}</p>
-                        <img src="{data?.imgsrc}" alt="{data?.title}">
-                    </div>
-                </a>
-            {/each}
-        </div>
-        <div class="flex flex_center flex_space_between input logout">
-            <input type="text" value="Logout" disabled> 
-            <span>
-                <img src="/icons/sign-out-icon.svg" alt="signout" style="margin-top: 5px;">
-            </span>
+        <div class="fixed_position">
+            <div class="category_lap">
+                {#each SideNavBarData as data}
+                    <a href="{data?.href}">
+                        <div class="flex flex_row sidenav_content">
+                            <img src="{data?.imgsrc}" alt="{data?.title}">
+                            <p class="sidenavbar_data">{data?.title}</p>
+                        </div>
+                    </a>
+                {/each}
+            </div>
+            <div class="pinned_project_lap">
+                <h3>Pinned Project</h3>
+                {#each PinnedProject as data}
+                    <a href="{data?.href}">
+                        <div class="flex flex_row flex_space_between sidenav_content">
+                            <p>{data?.title}</p>
+                            <img src="{data?.imgsrc}" alt="{data?.title}">
+                        </div>
+                    </a>
+                {/each}
+            </div>
+            <div class="flex flex_center flex_space_between input logout">
+                <input type="text" value="Logout &nbsp;&nbsp;"  disabled> 
+                <span>
+                    <img src="/icons/sign-out-icon.svg" alt="signout" style="margin-top: 5px;">
+                </span>
+            </div>
         </div>
     </div>
 </aside>
 
 <style>
+    
     .mobile_navbar {
         margin: 10px 20px;
         position: relative;
@@ -128,6 +131,15 @@
         border-bottom: 2px solid #F1ECFF;
     }
 
+    .sidenavbar_data:hover {
+        font-weight: 500;
+    }
+
+    .fixed_position {
+        position: fixed;
+        height: 92vh;
+    }
+
     @media (min-width: 768px) {
         .mobile_navbar {
             margin: 10px auto;
@@ -139,12 +151,11 @@
     @media (min-width: 1200px) {
         
         .desktop_navbar {
-            max-width: 275px;
-            width: 100%;
+            width: 275px;
             border-right: 3px solid #F1ECFF;
             box-shadow: #11111a0d 0px 4px 16px, rgba(17, 17, #11111a0d);
             padding: 20px 30px;
-            height: 91vh;
+            height: 100vh;
         }
 
         .sidenav_content {
@@ -166,7 +177,7 @@
         
         .input {
             background-color: #F1ECFF;
-            padding: 10px 25px;
+            padding: 10px 15px;
             position: relative;
             border: 1px solid #F1ECFF;
             transition: all .3s ease-in-out;

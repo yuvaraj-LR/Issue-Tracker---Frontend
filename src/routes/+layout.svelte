@@ -11,7 +11,7 @@
 
     <main class="flex">
         <SideNavbar />
-        <div class="main">
+        <div class="main w-100">
             <slot />
         </div>
     </main>
@@ -23,6 +23,8 @@
         flex-direction: column;
     }
 
+    
+
     @media (min-width: 768px) {
         
     }
@@ -30,6 +32,10 @@
     @media (min-width: 1200px) {
         main {
             flex-direction: row;
+        }
+
+        header {
+            height: 80px;
         }
     }
     

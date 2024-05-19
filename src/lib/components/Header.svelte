@@ -1,4 +1,6 @@
 <script>
+    import { enhance } from "$app/forms";
+
 
 </script>
 
@@ -18,14 +20,55 @@
 
     <div class="flex flex_row flex_center flex_gap_10 hdr_fns">
         <div class="pointer add_prjt">
-            <form action="" method="post">
-                <button class="flex_gap_10 uppercase">
-                    <span>Add Project</span>
-                    <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
-                </button>
-            </form>
-        </div>
+            <button class="flex_gap_10 uppercase" onclick="onClickAddProject()">
+                <span>Add Project</span>
+                <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
+            </button>
 
+            <div class="background hidden" id="background">
+            </div>
+
+            <div class="add_project_form hidden" id="add_project_form">
+                <img src="/icons/close-icon.svg" alt="close-icon" class="close_icon" onclick="onClickCloseIcon()">
+                <form action="" method="post" class="add_project_form_data" use:enhance>
+                    <h3 class="text_center">Add Project</h3>
+
+                    <div class="flex flex_gap_10 project_form_input_div">
+                        <span><img src="/icons/title-icon.svg" alt="title-icon" class="form_icons"></span>
+                        <input type="text" class="add_project_input" placeholder="Project Name">
+                    </div>
+                    <div class="flex flex_gap_10 project_form_input_div">
+                        <span><img src="/icons/author-name-icon.svg" alt="author-name-icon" class="form_icons"></span>
+                        <input type="text" class="add_project_input" placeholder="Author Name">
+                    </div>
+                    <div class="flex flex_col flex_gap_10 project_form_input_div">
+                        <div class="description">
+                            <label class="normal label" for="description">Description</label>
+                            <span><img src="/icons/description-icon.svg" alt="title-icon" class="form_icons"></span>
+                        </div>
+
+                        <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp"></textarea>
+                    </div>
+                    <button class="flex_gap_10 uppercase">
+                        <span>Add</span>
+                        <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
+                    </button>
+                </form>
+            </div>
+            <script>
+                function onClickCloseIcon() {
+                    document.getElementById("background").classList.add("hidden");
+                    document.getElementById("add_project_form").classList.add("hidden");
+                }
+
+                function onClickAddProject() {
+                    document.getElementById("background").classList.remove("hidden");
+                    document.getElementById("add_project_form").classList.remove("hidden");
+                }
+            </script>
+        </div>
+        
+        
         <div class="onlyForMob hamburger">
             <div class="hamburger-icon" onclick="onclickhamburger()">
                 <img src="/icons/hamburger-icon.svg" alt="hamburger-icon">
@@ -102,7 +145,10 @@
         padding: 10px 20px;
         border-bottom: 3px solid #F1ECFF;
         align-items: center;
-        position: relative;
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
+        z-index: 5;
     }
 
     .logo {
@@ -158,6 +204,63 @@
 
     .mob_bg_setting {
         padding: 3px 25px;
+    }
+
+    .text_center {
+        margin-bottom: 16px;
+    }
+
+    .add_project_form {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 15;
+        background-color: #fff;
+        max-width: 480px;
+        width: 100%;
+        height: 500px;
+        padding: 25px;
+        cursor: default;
+        transition: all .2s ease-in-out;
+    }
+
+    .background {
+        position: fixed;
+        inset: 0px;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 10;
+        cursor: default;
+    }
+
+    .add_project_input {
+        border-bottom: #999 solid 1px;
+        padding-left: 50px;
+    }
+
+    .project_form_input_div {
+        margin: 40px 0;
+    }
+
+    .form_icons {
+        position: absolute;
+        left: 40px;
+    }
+
+    .label {
+        padding-left: 60px;
+        color: #C1B3E8;
+        font-size: 1.2rem;
+    }
+
+    .desp {
+        padding: 10px 20px;
+    }
+
+    .close_icon {
+        position: absolute;
+        right: 30px;
+        cursor: pointer;
     }
 
     @media(min-width: 768px) {
