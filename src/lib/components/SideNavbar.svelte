@@ -98,7 +98,7 @@
 <style>
     
     .mobile_navbar {
-        margin: 10px 20px;
+        margin: 100px 20px 10px;
         position: relative;
         transition: all 2s ease-in-out;
     }
@@ -142,7 +142,7 @@
 
     @media (min-width: 768px) {
         .mobile_navbar {
-            margin: 10px auto;
+            margin: 100px auto 10px;
             max-width: 400px;
             width: 100%;
         }

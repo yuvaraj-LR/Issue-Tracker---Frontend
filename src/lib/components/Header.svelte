@@ -1,6 +1,9 @@
 <script>
     import { enhance } from "$app/forms";
 
+    export let form;
+
+    console.log(form, "form...");
 
 </script>
 
@@ -30,16 +33,17 @@
 
             <div class="add_project_form hidden" id="add_project_form">
                 <img src="/icons/close-icon.svg" alt="close-icon" class="close_icon" onclick="onClickCloseIcon()">
-                <form action="" method="post" class="add_project_form_data" use:enhance>
+                <form action="?/add" method="post" use:enhance class="add_project_form_data">
                     <h3 class="text_center">Add Project</h3>
 
                     <div class="flex flex_gap_10 project_form_input_div">
                         <span><img src="/icons/title-icon.svg" alt="title-icon" class="form_icons"></span>
-                        <input type="text" class="add_project_input" placeholder="Project Name">
+                        <input type="text" name="project_name" id="project_name" class="add_project_input" placeholder="Project Name">
                     </div>
                     <div class="flex flex_gap_10 project_form_input_div">
                         <span><img src="/icons/author-name-icon.svg" alt="author-name-icon" class="form_icons"></span>
-                        <input type="text" class="add_project_input" placeholder="Author Name">
+                        <input type="text" name="author_name" 
+                        id="author_name" class="add_project_input" placeholder="Author Name">
                     </div>
                     <div class="flex flex_col flex_gap_10 project_form_input_div">
                         <div class="description">
@@ -47,9 +51,9 @@
                             <span><img src="/icons/description-icon.svg" alt="title-icon" class="form_icons"></span>
                         </div>
 
-                        <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp"></textarea>
+                        <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp" ></textarea>
                     </div>
-                    <button class="flex_gap_10 uppercase">
+                    <button type="submit" class="flex_gap_10 uppercase">
                         <span>Add</span>
                         <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
                     </button>

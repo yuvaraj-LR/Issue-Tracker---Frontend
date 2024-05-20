@@ -86,4 +86,18 @@
         overflow: hidden;
     }
 
+    @media (min-width: 786px) {
+        .card {
+            max-width: 340px;
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .card {
+            max-width: 480px;
+            width: 100%;
+        }
+    }
+
 </style>

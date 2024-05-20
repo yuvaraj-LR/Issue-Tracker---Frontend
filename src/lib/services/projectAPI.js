@@ -16,3 +16,18 @@ export const getAllProject = async() => {
     
     return response;
 }
+
+export const addProject = async(payload) => {
+    const options = {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const addProjectResponse = await fetch(`${baseURL}/createProject`, options);
+    const response = await addProjectResponse.json();
+
+    return response;
+}
