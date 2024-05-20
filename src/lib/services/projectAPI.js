@@ -1,6 +1,6 @@
 import { env } from "$env/dynamic/private"
 
-const baseURL = `${env.BUILDENV == "dev" ? env.LOCAL_BACKEND_URL : env.LIVE_BACKEND_URL}api/issueTracker`
+const baseURL = `${env.BUILDENV == "dev" ? env.LOCAL_BACKEND_URL : env.LIVE_BACKEND_URL}/api/issueTracker`
 console.log(baseURL, "baseURL...");
 
 export const getAllProject = async() => {
