@@ -2,13 +2,15 @@
     import ProjectCard from "$lib/components/ProjectCard.svelte";
 
     export let data;
+    export let form;
+
 </script>
 
 <section class="container">
     <div class="flex flex_center flex_space_between w-100 projects_title">
         <h4 class="bolder">List of Projects : </h4>
         <div class="flex flex_row flex_gap_10 flex_center sort_by_date_btn">
-            <h5>Sort By Date</h5>
+            <h5 class="normal">Sort By Date</h5>
             <img src="/icons/down-arrow-bw-icon.svg" alt="down-arrow-bw-icon" width="10" height="10">
         </div>
     </div>
@@ -44,6 +46,7 @@
 
         .projects_list {
             border-top-left-radius: 35px;
+            padding-top: 30px;
         }
     }
 

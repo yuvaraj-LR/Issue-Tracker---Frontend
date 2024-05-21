@@ -9,7 +9,7 @@
 
 <section class="flex flex_col flex_wrap card">
     <div class="flex flex_row flex_center flex_space_between project_title">
-        <h3>{projectName}</h3>
+        <h3 style="width: 70%">{projectName}</h3>
         <h4 class="date_color normaler">{creationDate}</h4>
     </div>
 

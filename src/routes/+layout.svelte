@@ -2,15 +2,18 @@
     import "../global.css"
     import Header from "$lib/components/Header.svelte";
     import SideNavbar from "$lib/components/SideNavbar.svelte";
+    export let data;
+    export let form;
+    console.log(form, "I am form Dataa...");
 </script>
 
 <body>
     <header>
-        <Header />
+        <Header {form}/>
     </header>
 
     <main class="flex">
-        <SideNavbar />
+        <SideNavbar activeTab = {data?.activeTab}/>
         <div class="main w-100">
             <slot />
         </div>

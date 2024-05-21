@@ -1,4 +1,4 @@
-import { addProject, getAllProject } from "$lib/services/projectAPI.js"
+import {addProject, getAllProject } from "$lib/services/projectAPI.js"
 
 export async function load({url}) {
     const projects = await getAllProject();
@@ -29,12 +29,13 @@ export const actions = {
                 errorMessage.description = "Please describe the project."
             }
 
+            console.log(errorMessage, "error message...");
+
             return {
                 errors: errorMessage
             }
         }
 
-        console.log(errorMessage, "error message...");
 
         let payload = {
             "name": projectName,

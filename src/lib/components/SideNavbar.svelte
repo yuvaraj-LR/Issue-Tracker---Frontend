@@ -1,6 +1,8 @@
 <script>
     import { SideNavBarData, PinnedProject } from "$lib/services/navbarCategory.js";
 
+    export let activeTab;
+
 </script> 
 
 <aside class="navbar">
@@ -66,7 +68,7 @@
         <div class="fixed_position">
             <div class="category_lap">
                 {#each SideNavBarData as data}
-                    <a href="{data?.href}">
+                    <a href="{data?.href}" class={data?.title == activeTab ? "active" : ""} >
                         <div class="flex flex_row sidenav_content">
                             <img src="{data?.imgsrc}" alt="{data?.title}">
                             <p class="sidenavbar_data">{data?.title}</p>
@@ -93,6 +95,8 @@
             </div>
         </div>
     </div>
+
+
 </aside>
 
 <style>
@@ -140,6 +144,11 @@
         height: 92vh;
     }
 
+    .active {
+        color: blue;
+        font-weight: 800;
+    }
+
     @media (min-width: 768px) {
         .mobile_navbar {
             margin: 100px auto 10px;
@@ -152,8 +161,7 @@
         
         .desktop_navbar {
             width: 275px;
-            border-right: 3px solid #F1ECFF;
-            box-shadow: #11111a0d 0px 4px 16px, rgba(17, 17, #11111a0d);
+            border-right: 2px solid #F1ECFF;
             padding: 20px 30px;
             height: 100vh;
         }

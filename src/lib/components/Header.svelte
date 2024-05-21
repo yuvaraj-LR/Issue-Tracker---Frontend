@@ -33,18 +33,20 @@
 
             <div class="add_project_form hidden" id="add_project_form">
                 <img src="/icons/close-icon.svg" alt="close-icon" class="close_icon" onclick="onClickCloseIcon()">
-                <form action="?/add" method="post" use:enhance class="add_project_form_data">
+                <form action="?/add" method="post" class="add_project_form_data" use:enhance>
                     <h3 class="text_center">Add Project</h3>
 
                     <div class="flex flex_gap_10 project_form_input_div">
                         <span><img src="/icons/title-icon.svg" alt="title-icon" class="form_icons"></span>
                         <input type="text" name="project_name" id="project_name" class="add_project_input" placeholder="Project Name">
                     </div>
+
                     <div class="flex flex_gap_10 project_form_input_div">
                         <span><img src="/icons/author-name-icon.svg" alt="author-name-icon" class="form_icons"></span>
                         <input type="text" name="author_name" 
                         id="author_name" class="add_project_input" placeholder="Author Name">
                     </div>
+
                     <div class="flex flex_col flex_gap_10 project_form_input_div">
                         <div class="description">
                             <label class="normal label" for="description">Description</label>
@@ -53,6 +55,7 @@
 
                         <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp" ></textarea>
                     </div>
+
                     <button type="submit" class="flex_gap_10 uppercase">
                         <span>Add</span>
                         <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
@@ -147,7 +150,7 @@
 <style>
     .navbar {
         padding: 10px 20px;
-        border-bottom: 3px solid #F1ECFF;
+        border-bottom: 1px solid #F1ECFF;
         align-items: center;
         position: fixed;
         width: 100%;
@@ -161,7 +164,7 @@
 
     .input {
         background-color: #F1ECFF;
-        padding: 10px 25px;
+        padding: 0 25px;
         position: relative;
         border: 1px solid #F1ECFF;
         transition: all .3s ease-in-out;
@@ -179,12 +182,13 @@
     .user_img {
         position: absolute;
         left: 15px;
+        top: 5px;
     }
 
     .drop_down_arrow {
         position: absolute;
-        right: 10px;
-        top: 15px;
+        right: 15px;
+        top: 8px;
     }
 
     .mobile_nav {
@@ -223,10 +227,11 @@
         background-color: #fff;
         max-width: 480px;
         width: 100%;
-        height: 500px;
+        height: 525px;
         padding: 25px;
         cursor: default;
         transition: all .2s ease-in-out;
+        border-radius: 15px;
     }
 
     .background {
@@ -238,7 +243,7 @@
     }
 
     .add_project_input {
-        border-bottom: #999 solid 1px;
+        border-bottom: #dddddd solid 1px;
         padding-left: 50px;
     }
 
@@ -259,6 +264,7 @@
 
     .desp {
         padding: 10px 20px;
+        border: 1px solid #ddd;
     }
 
     .close_icon {
