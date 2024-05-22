@@ -145,7 +145,7 @@
     }
 
     .active {
-        color: blue;
+        color: #5e30d5;
         font-weight: 800;
     }
 

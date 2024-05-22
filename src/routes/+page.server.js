@@ -1,4 +1,4 @@
-import {addProject, getAllProject } from "$lib/services/projectAPI.js"
+import {addProject, getAllProject, deleteProject } from "$lib/services/projectAPI.js"
 
 export async function load({url}) {
     const projects = await getAllProject();
@@ -52,5 +52,28 @@ export const actions = {
                 message: addProjectResp?.msg
             }
         } 
+    },
+
+    delete: async({request}) => {
+        let formData = await request.formData();
+
+        const id = formData.get("projectId");
+        console.log(id, "iddd.....");
+
+        if(!id) {
+            return {
+                "Error": "Invalid Id"
+            }
+        }
+
+        const deleteProjectResp = await deleteProject(id);
+        console.log(deleteProjectResp, "resp...");
+
+        if(deleteProjectResp?.status) {
+            return {
+                message: "Successfully Deleted"
+            }
+        }
+
     }
 }

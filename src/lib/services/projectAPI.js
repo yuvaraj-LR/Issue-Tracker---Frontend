@@ -31,3 +31,19 @@ export const addProject = async(payload) => {
 
     return response;
 }
+
+export const deleteProject = async(id) => {
+    console.log(id, "idd....");
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const deleteProjectResponse = await fetch(`${baseURL}/deleteProject?projectId=${id}`, options);
+    const response = await deleteProjectResponse.json();
+
+    return response
+
+}

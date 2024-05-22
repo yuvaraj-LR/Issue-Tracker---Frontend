@@ -1,25 +1,33 @@
 <script>
-    import ProjectCard from "$lib/components/ProjectCard.svelte";
+    import EmptyComponent from "$lib/components/EmptyComponent.svelte";
+import ProjectCard from "$lib/components/ProjectCard.svelte";
 
     export let data;
+
+    console.log(data, "dataa...");
+
     export let form;
 
+    console.log(form, "formrmmmm");
 </script>
 
 <section class="container">
-    <div class="flex flex_center flex_space_between w-100 projects_title">
-        <h4 class="bolder">List of Projects : </h4>
-        <div class="flex flex_row flex_gap_10 flex_center sort_by_date_btn">
-            <h5 class="normal">Sort By Date</h5>
-            <img src="/icons/down-arrow-bw-icon.svg" alt="down-arrow-bw-icon" width="10" height="10">
+    {#if data?.projects?.project}
+        <div class="flex flex_center flex_space_between w-100 projects_title">
+            <h4 class="bolder">List of Projects : </h4>
+            <div class="flex flex_row flex_gap_10 flex_center sort_by_date_btn">
+                <h5 class="normal">Sort By Date</h5>
+                <img src="/icons/down-arrow-bw-icon.svg" alt="down-arrow-bw-icon" width="10" height="10">
+            </div>
         </div>
-    </div>
-
-    <div class="flex flex_wrap flex_center w-100 projects_list">
-        {#each data?.projects?.project as project}
-            <ProjectCard projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
-        {/each}
-    </div>
+        <div class="flex flex_wrap flex_center w-100 projects_list">
+            {#each data?.projects?.project as project}
+                <ProjectCard projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
+            {/each}
+        </div>
+    {:else}
+        <EmptyComponent content="There are currently no projects available. Please add a project to begin adding issues." />
+    {/if}
 </section>
 
 <style>
@@ -41,7 +49,7 @@
 
     @media (min-width: 1200px) {
         .projects_title {
-            padding: 10px 40px;
+            padding: 0 40px;
         }
 
         .projects_list {
