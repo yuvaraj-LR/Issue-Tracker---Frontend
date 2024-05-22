@@ -1,5 +1,4 @@
 <script>
-    export let form;
 </script>
 
 <nav class="flex flex_space_between navbar">
@@ -9,9 +8,9 @@
             <h2 class="hideForMob logo_tlt">TrackPro</h2>
         </a>
         <div class="onlyForLap input search">
-            <form action="" method="post" class="flex">
+            <form action="?/search" method="post" class="flex">
                 <img src="/icons/search-icon.svg" alt="search" class="">
-                <input type="text" class="flex flex_row" placeholder="Search Project" >
+                <input type="text" class="flex flex_row" name="project_name" id="project_name" placeholder="Search Project" >
             </form>
         </div>
     </div>

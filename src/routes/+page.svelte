@@ -3,9 +3,6 @@
 import ProjectCard from "$lib/components/ProjectCard.svelte";
 
     export let data;
-
-    console.log(data, "dataa...");
-
     export let form;
 
     console.log(form, "formrmmmm");
@@ -21,9 +18,17 @@ import ProjectCard from "$lib/components/ProjectCard.svelte";
             </div>
         </div>
         <div class="flex flex_wrap flex_center w-100 projects_list">
-            {#each data?.projects?.project as project}
-                <ProjectCard projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
-            {/each}
+            {#if form}
+                {#if form?.status}
+                    <ProjectCard projectName = {form?.project[0]?.name} creationDate = {form?.project[0]?.timestamp} authorName = {form?.project[0]?.author} projectDesp = {form?.project[0]?.description} totalNumberOfIssues = {form?.project[0]?.issues?.length} projectId= {form?.project[0]?._id}/>
+                {:else}
+                    <EmptyComponent content="No results found for your search." />
+                {/if}
+            {:else}
+                {#each data?.projects?.project as project}
+                    <ProjectCard projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
+                {/each}
+            {/if}
         </div>
     {:else}
         <EmptyComponent content="There are currently no projects available. Please add a project to begin adding issues." />
@@ -54,6 +59,7 @@ import ProjectCard from "$lib/components/ProjectCard.svelte";
 
         .projects_list {
             border-top-left-radius: 35px;
+            border-bottom-left-radius: 35px;
             padding-top: 30px;
         }
     }

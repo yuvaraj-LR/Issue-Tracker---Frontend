@@ -3,13 +3,11 @@
     import Header from "$lib/components/Header.svelte";
     import SideNavbar from "$lib/components/SideNavbar.svelte";
     export let data;
-    export let form;
-    console.log(form, "I am form Dataa...");
 </script>
 
 <body>
     <header>
-        <Header {form}/>
+        <Header />
     </header>
 
     <main class="flex">

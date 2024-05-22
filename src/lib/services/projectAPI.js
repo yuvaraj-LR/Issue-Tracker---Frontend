@@ -47,3 +47,18 @@ export const deleteProject = async(id) => {
     return response
 
 }
+
+export const searchProject = async(payload) => {
+    const options = {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const searchProjectResponse = await fetch(`${baseURL}/searchProject`, options);
+    const response = await searchProjectResponse.json();
+
+    return response;
+}

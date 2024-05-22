@@ -1,4 +1,4 @@
-import {addProject, getAllProject, deleteProject } from "$lib/services/projectAPI.js"
+import {addProject, getAllProject, deleteProject, searchProject } from "$lib/services/projectAPI.js"
 
 export async function load({url}) {
     const projects = await getAllProject();
@@ -74,6 +74,41 @@ export const actions = {
                 message: "Successfully Deleted"
             }
         }
+    }, 
 
+    search: async({request}) => {
+        let formData = await request.formData();
+
+        const projectName = formData.get("project_name");
+        console.log(projectName, "projectttt....");
+
+        if(!projectName) {
+            return {
+                error: "Please enter project name or author name"
+            }
+        }
+
+        const payload = {
+            projectName,
+            "authorName": projectName
+        }
+
+        const searchProjectResp = await searchProject(payload);
+        console.log(searchProjectResp, "resp....");
+
+        if(searchProjectResp?.status) {
+            return {
+                status: true,
+                message: "Fetched Successfully.",
+                project: searchProjectResp?.project
+            }
+        } else {
+            return {
+                status: false,
+                search: "No Project Found."
+            }
+        }
+
+        
     }
 }
