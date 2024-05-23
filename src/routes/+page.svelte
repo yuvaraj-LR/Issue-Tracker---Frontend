@@ -18,7 +18,7 @@ import ProjectCard from "$lib/components/ProjectCard.svelte";
             </div>
         </div>
         <div class="flex flex_wrap flex_center w-100 projects_list">
-            {#if form}
+            {#if form?.result == "search"}
                 {#if form?.status}
                     <ProjectCard projectName = {form?.project[0]?.name} creationDate = {form?.project[0]?.timestamp} authorName = {form?.project[0]?.author} projectDesp = {form?.project[0]?.description} totalNumberOfIssues = {form?.project[0]?.issues?.length} projectId= {form?.project[0]?._id}/>
                 {:else}

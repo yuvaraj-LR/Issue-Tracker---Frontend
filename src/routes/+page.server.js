@@ -49,6 +49,7 @@ export const actions = {
 
         if(addProjectResp?.status) {
             return {
+                status: true,
                 message: addProjectResp?.msg
             }
         } 
@@ -71,6 +72,7 @@ export const actions = {
 
         if(deleteProjectResp?.status) {
             return {
+                status: true,
                 message: "Successfully Deleted"
             }
         }
@@ -98,17 +100,17 @@ export const actions = {
 
         if(searchProjectResp?.status) {
             return {
+                result: "search",
                 status: true,
                 message: "Fetched Successfully.",
                 project: searchProjectResp?.project
             }
         } else {
             return {
+                result: "search",
                 status: false,
                 search: "No Project Found."
             }
         }
-
-        
     }
 }

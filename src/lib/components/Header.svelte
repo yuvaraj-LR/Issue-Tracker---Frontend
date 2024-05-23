@@ -10,7 +10,7 @@
         <div class="onlyForLap input search">
             <form action="?/search" method="post" class="flex">
                 <img src="/icons/search-icon.svg" alt="search" class="">
-                <input type="text" class="flex flex_row" name="project_name" id="project_name" placeholder="Search Project" >
+                <input type="text" class="flex flex_row project_name" name="project_name" id="project_name" placeholder="Search by Project Name" >
             </form>
         </div>
     </div>
@@ -78,13 +78,13 @@
                 
                     <div class="flex flex_gap_10 flex_col project_form_input_div">
                         <span><img src="/icons/title-icon.svg" alt="title-icon" class="form_icons"></span>
-                        <input type="text" name="project_name" id="project_name" class="add_project_input" placeholder="Project Name" autocomplete="off" autofocus>
+                        <input type="text" name="project_name" id="project_name" class="add_project_input" placeholder="Project Name" autocomplete="off" required autofocus>
                         <span class="error_msg hidden" id="project_name_error">Please Enter Project Name!</span>
                     </div>
                 
                     <div class="flex flex_gap_10 flex_col project_form_input_div">
                         <span><img src="/icons/author-name-icon.svg" alt="author-name-icon" class="form_icons"></span>
-                        <input type="text" name="author_name" autocomplete="off" autofocus id="author_name" class="add_project_input" placeholder="Author Name">
+                        <input type="text" name="author_name" autocomplete="off" required autofocus id="author_name" class="add_project_input" placeholder="Author Name">
                         <span class="error_msg hidden" id="author_name_error">Please Enter Author Name!</span>
                     </div>
                 
@@ -93,7 +93,7 @@
                             <label class="normal label" for="description">Description</label>
                             <span><img src="/icons/description-icon.svg" alt="title-icon" class="form_icons" id="desc"></span>
                         </div>
-                        <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp" autocomplete="off" autofocus></textarea>
+                        <textarea name="description" id="description" cols="20" rows="5" placeholder="Please enter the description" class="desp" autocomplete="off" required autofocus></textarea>
                         <span class="error_msg hidden" id="description_error">Please Enter Description!</span>
                     </div>
                 
