@@ -8,52 +8,56 @@
     export let projectId;
 </script>
 
-<section class="flex flex_col flex_wrap card">
-    <div class="flex flex_row flex_center flex_space_between project_title">
-        <h3 style="width: 70%">{projectName}</h3>
-        <h4 class="date_color normaler">{creationDate}</h4>
+<section class="flex flex_col flex_wrap flex_space_between card">
+    <div class="flex flex_col flex_gap_10">
+        <div class="flex flex_row flex_center flex_space_between project_title">
+            <h3 style="width: 70%">{projectName}</h3>
+            <h4 class="date_color normaler">{creationDate}</h4>
+        </div>
+    
+        <div class="flex flex_row project_author">
+            <span><p>Created By&nbsp;</p></span>
+            <span><h4 class="bolder">{authorName}</h4></span>
+        </div>
+    
+        <div class="flex flex_wrap project_desc">
+            <p class="project_desp">{projectDesp}</p>
+        </div>
     </div>
 
-    <div class="flex flex_row project_author">
-        <span><p>Created By&nbsp;</p></span>
-        <span><h4 class="bolder">{authorName}</h4></span>
-    </div>
+    <div class="flex flex_col flex_gap_10">
+        <div class="flex flex_row total_issues">
+            <span><h4 class="light">Total issues:&nbsp; </h4></span>
+            <span><h4>{totalNumberOfIssues}</h4></span>
+        </div>
 
-    <div class="flex flex_wrap project_desc">
-        <p class="project_desp">{projectDesp}</p>
-    </div>
-
-    <div class="flex flex_row total_issues">
-        <span><h4 class="light">Total issues:&nbsp; </h4></span>
-        <span><h4>{totalNumberOfIssues}</h4></span>
-    </div>
-
-    <div class="flex flex_row flex_gap_10 actionBtns">
-        <a href="/issues?projectId={projectId}" class="w-100">
-            <button class="view_btn">View Issue</button>
-        </a>
-
-        <form action="?/delete" method="post" id="deleteForm-{projectId}" use:enhance>
-            <input type="hidden" id="projectId" name="projectId" value="{projectId}">
-            <img src="/icons/delete-icon.svg" alt="delete-icon" class="delete" onclick="confirmAndSubmit('{projectId}', '{projectName}')">
-            <input type="submit" value="submit" class="hidden">
-        </form>
-        
-        <script>
-            function confirmAndSubmit(projectId, projectName) {
-                if (confirm(`Are you sure you want to delete ${projectName}?`)) {
-                    document.getElementById(`deleteForm-${projectId}`).submit();
+        <div class="flex flex_row flex_gap_10 actionBtns">
+            <a href="/issues?projectId={projectId}" class="w-100">
+                <button class="view_btn">View Issue</button>
+            </a>
+    
+            <form action="?/delete" method="post" id="deleteForm-{projectId}" use:enhance>
+                <input type="hidden" id="projectId" name="projectId" value="{projectId}">
+                <img src="/icons/delete-icon.svg" alt="delete-icon" class="delete" onclick="confirmAndSubmit('{projectId}', '{projectName}')">
+                <input type="submit" value="submit" class="hidden">
+            </form>
+            
+            <script>
+                function confirmAndSubmit(projectId, projectName) {
+                    if (confirm(`Are you sure you want to delete ${projectName}?`)) {
+                        document.getElementById(`deleteForm-${projectId}`).submit();
+                    }
                 }
-            }
-        </script>
+            </script>
+        </div>
     </div>
-
 </section>
 
 <style>
 
     .card {
         max-width: 480px;
+        height: 375px;
         padding: 25px;
         border: 1px solid #fff;
         background-color: #fff;
