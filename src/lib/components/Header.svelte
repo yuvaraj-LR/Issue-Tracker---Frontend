@@ -1,4 +1,6 @@
 <script>
+    export let isIssuePage;
+
 </script>
 
 <nav class="flex flex_space_between navbar">
@@ -7,20 +9,25 @@
             <img src="/icons/logo-icon.svg" alt="logo-icon" height="40px">
             <h2 class="hideForMob logo_tlt">TrackPro</h2>
         </a>
-        <div class="onlyForLap input search">
-            <form action="?/search" method="post" class="flex">
-                <img src="/icons/search-icon.svg" alt="search" class="">
-                <input type="text" class="flex flex_row project_name" name="project_name" id="project_name" placeholder="Search by Project Name" >
-            </form>
-        </div>
+
+        {#if !isIssuePage}
+            <div class="onlyForLap input search">
+                <form action="?/search" method="post" class="flex">
+                    <img src="/icons/search-icon.svg" alt="search" class="">
+                    <input type="text" class="flex flex_row project_name" name="project_name" id="project_name" placeholder="Search by Project Name" >
+                </form>
+            </div>
+        {/if}
     </div>
 
     <div class="flex flex_row flex_center flex_gap_10 hdr_fns">
         <div class="pointer add_prjt">
-            <button class="flex_gap_10 uppercase" onclick="onClickAddProject()">
-                <span>Add Project</span>
-                <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
-            </button>
+            {#if !isIssuePage}
+                <button class="flex_gap_10 uppercase" onclick="onClickAddProject()">
+                    <span>Add Project</span>
+                    <span><img src="/icons/add-icon.svg" alt="add-icon"></span>
+                </button>
+            {/if}
 
             <div class="background hidden" id="background">
             </div>
@@ -191,7 +198,7 @@
 
 <style>
     .navbar {
-        padding: 10px 20px;
+        padding: 17px 20px;
         border-bottom: 1px solid #F1ECFF;
         align-items: center;
         position: fixed;

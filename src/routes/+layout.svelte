@@ -3,11 +3,13 @@
     import Header from "$lib/components/Header.svelte";
     import SideNavbar from "$lib/components/SideNavbar.svelte";
     export let data;
+
+    console.log(data, "header Dataa...");
 </script>
 
 <body>
     <header>
-        <Header />
+        <Header isIssuePage = {data?.isIssuePage} />
     </header>
 
     <main class="flex">

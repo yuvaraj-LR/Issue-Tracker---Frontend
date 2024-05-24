@@ -1,6 +1,6 @@
 import {addProject, getAllProject, deleteProject, searchProject } from "$lib/services/projectAPI.js"
 
-export async function load({url}) {
+export async function load({locals, url}) {
     const projects = await getAllProject();
 
     return {

@@ -62,3 +62,17 @@ export const searchProject = async(payload) => {
 
     return response;
 }
+
+export const getProjectById = async(projectId) => {
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const searchProjectResponse = await fetch(`${baseURL}/getProjectById?projectId=${projectId}`, options);
+    const response = await searchProjectResponse.json();
+
+    return response;
+}
