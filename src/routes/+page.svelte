@@ -1,6 +1,6 @@
 <script>
     import EmptyComponent from "$lib/components/EmptyComponent.svelte";
-import ProjectCard from "$lib/components/ProjectCard.svelte";
+    import Card from "$lib/components/Card.svelte";
 
     export let data;
     export let form;
@@ -20,13 +20,13 @@ import ProjectCard from "$lib/components/ProjectCard.svelte";
         <div class="flex flex_wrap flex_center w-100 projects_list">
             {#if form?.result == "search"}
                 {#if form?.status}
-                    <ProjectCard projectName = {form?.project[0]?.name} creationDate = {form?.project[0]?.timestamp} authorName = {form?.project[0]?.author} projectDesp = {form?.project[0]?.description} totalNumberOfIssues = {form?.project[0]?.issues?.length} projectId= {form?.project[0]?._id}/>
+                    <Card projectName = {form?.project[0]?.name} creationDate = {form?.project[0]?.timestamp} authorName = {form?.project[0]?.author} projectDesp = {form?.project[0]?.description} totalNumberOfIssues = {form?.project[0]?.issues?.length} projectId= {form?.project[0]?._id}/>
                 {:else}
                     <EmptyComponent content="No results found for your search." />
                 {/if}
             {:else}
                 {#each data?.projects?.project as project}
-                    <ProjectCard projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
+                    <Card projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
                 {/each}
             {/if}
         </div>

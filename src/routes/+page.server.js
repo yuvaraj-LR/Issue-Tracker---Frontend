@@ -9,7 +9,7 @@ export async function load({locals, url}) {
 }   
 
 export const actions = {
-    add: async({request}) => {
+    addProject: async({request}) => {
         let formData = await request.formData();
         console.log(formData, "formData..");
 

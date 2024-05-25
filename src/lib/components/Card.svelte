@@ -6,6 +6,7 @@
     export let projectDesp;
     export let totalNumberOfIssues;
     export let projectId;
+    export let isIssue;
 </script>
 
 <section class="flex flex_col flex_wrap flex_space_between card">
@@ -26,7 +27,7 @@
     </div>
 
     <div class="flex flex_col flex_gap_10">
-        <div class="flex flex_row total_issues">
+        <div class="flex flex_row total_issues {isIssue ? "hidden" : ""}">
             <span><h4 class="light">Total issues:&nbsp; </h4></span>
             <span><h4>{totalNumberOfIssues}</h4></span>
         </div>
@@ -57,7 +58,7 @@
 
     .card {
         max-width: 480px;
-        height: 375px;
+        height: 400px;
         padding: 25px;
         border: 1px solid #fff;
         background-color: #fff;

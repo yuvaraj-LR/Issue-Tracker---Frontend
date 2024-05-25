@@ -13,5 +13,7 @@ export async function load({locals, url}) {
 }
 
 export const actions = {
-    
+    addIssue: async({request}) => {
+        console.log("I am add Issue form action...");
+    }
 }
