@@ -7,6 +7,7 @@
     export let totalNumberOfIssues;
     export let projectId;
     export let isIssue;
+    export let labels;
 </script>
 
 <section class="flex flex_col flex_wrap flex_space_between card">
@@ -27,10 +28,19 @@
     </div>
 
     <div class="flex flex_col flex_gap_10">
-        <div class="flex flex_row total_issues {isIssue ? "hidden" : ""}">
-            <span><h4 class="light">Total issues:&nbsp; </h4></span>
-            <span><h4>{totalNumberOfIssues}</h4></span>
-        </div>
+        {#if !isIssue}
+            <div class="flex flex_row total_issues">
+                <span><h4 class="light">Total issues:&nbsp; </h4></span>
+                <span><h4>{totalNumberOfIssues}</h4></span>
+            </div>
+        {:else}
+            <div class="flex flex_row flex_wrap flex_gap_10 labels_list">
+                <h4>Labels:&nbsp;</h4>
+                {#each labels as label}
+                    <p class="filter {label.toLowerCase()}">{label}</p>
+                {/each}
+            </div>
+        {/if}
 
         <div class="flex flex_row flex_gap_10 actionBtns">
             <a href="/issues?projectId={projectId}" class="w-100">
@@ -101,7 +111,17 @@
         -webkit-box-orient: vertical;  
         overflow: hidden;
     }
+    .labels_list {
+        align-items: center;
+        margin: 5px 0;
+    }
 
+    .filter {
+        text-align: center;
+        padding: 3px 15px;
+        border-radius: 7px;
+        cursor: pointer;
+    }
 
     @media (min-width: 786px) {
         .card {

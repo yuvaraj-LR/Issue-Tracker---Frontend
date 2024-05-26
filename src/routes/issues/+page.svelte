@@ -115,7 +115,7 @@
     <div class="flex flex_wrap flex_center issue_card">
         {#if project?.issues.length > 0}
             {#each project?.issues as issue }
-                <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={issue?._id} />
+                <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={issue?._id} labels={issue?.labels} />
             {/each}
         {:else} 
             <EmptyComponent content="There are currently no Issues available for this Project. Please add a  issue to view." />
@@ -202,31 +202,6 @@
         display: flex;
         justify-content: center;
         row-gap: 20px;
-    }
-
-    .bug {
-        color: #D6D930;
-        border: 2px solid #D6D930;
-    }
-
-    .ui {
-        color: #3056D9;
-        border: 2px solid #3056D9;
-    }
-
-    .frontend {
-        color: #30AAD9;
-        border: 2px solid #30AAD9;
-    }
-
-    .database {
-        color: #D32C4A;
-        border: 2px solid #D32C4A;
-    }
-
-    .backend {
-        color: #30D9B3;
-        border: 2px solid #30D9B3;
     }
 
     @media(min-width: 768px) {

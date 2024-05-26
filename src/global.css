@@ -184,6 +184,33 @@ p {
     border: 1px solid #afafaf;
 }
 
+/* Labels Style */
+
+.bug {
+    color: #D6D930;
+    border: 2px solid #D6D930;
+}
+
+.ui {
+    color: #3056D9;
+    border: 2px solid #3056D9;
+}
+
+.frontend {
+    color: #30AAD9;
+    border: 2px solid #30AAD9;
+}
+
+.database {
+    color: #D32C4A;
+    border: 2px solid #D32C4A;
+}
+
+.backend {
+    color: #30D9B3;
+    border: 2px solid #30D9B3;
+}
+
 @media(min-width: 768px) {
     .onlyForMob {
         display: none;
