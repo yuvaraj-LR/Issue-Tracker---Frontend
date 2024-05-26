@@ -26,7 +26,7 @@
                 {/if}
             {:else}
                 {#each data?.projects?.project as project}
-                    <Card projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id}/>
+                    <Card projectName = {project?.name} creationDate = {project?.timestamp} authorName = {project?.author} projectDesp = {project?.description} totalNumberOfIssues = {project?.issues?.length} projectId= {project?._id} deleteAction="?/deleteProject"/>
                 {/each}
             {/if}
         </div>

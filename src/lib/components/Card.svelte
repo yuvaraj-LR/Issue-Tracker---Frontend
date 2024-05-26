@@ -6,8 +6,10 @@
     export let projectDesp;
     export let totalNumberOfIssues;
     export let projectId;
+    export let issueId;
     export let isIssue;
     export let labels;
+    export let deleteAction;
 </script>
 
 <section class="flex flex_col flex_wrap flex_space_between card">
@@ -47,14 +49,17 @@
                 <button class="view_btn">View Issue</button>
             </a>
     
-            <form action="?/delete" method="post" id="deleteForm-{projectId}" use:enhance>
+            <form action="{deleteAction}" method="post" id="deleteForm-{isIssue ? issueId : projectId }" use:enhance>
                 <input type="hidden" id="projectId" name="projectId" value="{projectId}">
-                <img src="/icons/delete-icon.svg" alt="delete-icon" class="delete" onclick="confirmAndSubmit('{projectId}', '{projectName}')">
+                <input type="hidden" id="issueId" name="issueId" value="{issueId}">
+                <img src="/icons/delete-icon.svg" alt="delete-icon" class="delete" onclick="confirmAndSubmit('{isIssue ? issueId : projectId }', '{projectName}')">
                 <input type="submit" value="submit" class="hidden">
             </form>
             
             <script>
                 function confirmAndSubmit(projectId, projectName) {
+                    console.log(projectId, "projectId...........");
+
                     if (confirm(`Are you sure you want to delete ${projectName}?`)) {
                         document.getElementById(`deleteForm-${projectId}`).submit();
                     }

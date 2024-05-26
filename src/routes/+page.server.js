@@ -55,7 +55,7 @@ export const actions = {
         } 
     },
 
-    delete: async({request}) => {
+    deleteProject: async({request}) => {
         let formData = await request.formData();
 
         const id = formData.get("projectId");

@@ -187,28 +187,28 @@ p {
 /* Labels Style */
 
 .bug {
-    color: #D6D930;
-    border: 2px solid #D6D930;
+    color: #D6D930 !important;
+    border: 2px solid #D6D930 !important;
 }
 
 .ui {
-    color: #3056D9;
-    border: 2px solid #3056D9;
+    color: #3056D9 !important;
+    border: 2px solid #3056D9 !important;
 }
 
 .frontend {
-    color: #30AAD9;
-    border: 2px solid #30AAD9;
+    color: #30AAD9 !important;
+    border: 2px solid #30AAD9 !important;
 }
 
 .database {
-    color: #D32C4A;
-    border: 2px solid #D32C4A;
+    color: #D32C4A !important;
+    border: 2px solid #D32C4A !important;
 }
 
 .backend {
-    color: #30D9B3;
-    border: 2px solid #30D9B3;
+    color: #30D9B3 !important;
+    border: 2px solid #30D9B3 !important;
 }
 
 @media(min-width: 768px) {

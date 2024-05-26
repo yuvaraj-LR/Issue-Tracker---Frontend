@@ -76,3 +76,32 @@ export const getProjectById = async(projectId) => {
 
     return response;
 }
+
+export const addIssue = async(payload, id) => {
+    const options = {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const addProjectResponse = await fetch(`${baseURL}/createIssue?projectId=${id}`, options);
+    const response = await addProjectResponse.json();
+
+    return response;
+}
+
+export const deleteIssue = async(projectId, issueId) => {
+    const options = {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+
+    const deleteProjectResponse = await fetch(`${baseURL}/deleteIssue?projectId=${projectId}&issueId=${issueId}`, options);
+    const response = await deleteProjectResponse.json();
+
+    return response
+}

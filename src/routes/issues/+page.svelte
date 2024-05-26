@@ -6,14 +6,13 @@
     import Card from "$lib/components/Card.svelte";
 
     const project = data?.project?.project[0];
-    console.log(project, "projectt...");
 </script>
 
 <section class="issue_container">
     <div class="flex flex_space_between issue_option_menu">
         <div class="flex issue_menus">
             <div class="flex title_backmenu">
-                <img src="/icons/back-arrow-icon.svg" class="pointer back_icon" alt="back-arrow-img" onclick="onClickBack()"> 
+                <a href="/"><img src="/icons/back-arrow-icon.svg" class="pointer back_icon" alt="back-arrow-img" /></a> 
                 <h3>{project.name}</h3>
             </div>
     
@@ -31,7 +30,7 @@
                 </button>
 
                 <div class="hidden add_form" id="add_issue_form">
-                    <AddForm action="?/addIssue" projectName="Issue"/>
+                    <AddForm action="?/addIssue" projectName="Issue" projectId={project?._id} deleteAction="?/deleteIssue" isIssue=true />
                 </div>
 
                 <script>
@@ -115,10 +114,8 @@
     <div class="flex flex_wrap flex_center issue_card">
         {#if project?.issues.length > 0}
             {#each project?.issues as issue }
-                <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={issue?._id} labels={issue?.labels} />
+                <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={project?._id} issueId={issue?._id} labels={issue?.labels} deleteAction="?/deleteIssue"/>
             {/each}
-        {:else} 
-            <EmptyComponent content="There are currently no Issues available for this Project. Please add a  issue to view." />
         {/if}
     </div>
 
@@ -194,7 +191,8 @@
         padding: 5px 15px;
         margin-inline: 10px;
         border-radius: 7px;
-        border: 2px solid #444;
+        border: 2px solid #dcdcdc;
+        color: #767676;
         cursor: pointer;
     }
 
