@@ -105,3 +105,21 @@ export const deleteIssue = async(projectId, issueId) => {
 
     return response
 }
+
+export const filterIssue = async(projectId, labels) => {
+    console.log(projectId, "projectid.....");
+    console.log(labels, "payloadddd.....");
+    
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(labels)
+    };
+
+    const filterIssueResponse = await fetch(`${baseURL}/filterIssueByLabel?projectId=${projectId}`, options);
+    const response = await filterIssueResponse.json();
+
+    return response;
+}

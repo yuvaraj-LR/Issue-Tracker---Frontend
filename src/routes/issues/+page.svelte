@@ -1,11 +1,16 @@
 <script>
     export let data;
+    export let form;
+
+    console.log(form, "I am form dataa....");
 
     import AddForm from '$lib/components/AddForm.svelte';
     import EmptyComponent from '$lib/components/EmptyComponent.svelte';
     import Card from "$lib/components/Card.svelte";
+  import { enhance } from '$app/forms';
 
     const project = data?.project?.project[0];
+
 </script>
 
 <section class="issue_container">
@@ -74,35 +79,62 @@
                     <div id="filter-5" class="filter" onclick="onSelectBackend()">Backend</div>
                 </div>
 
-                <form action="?/filterByLabel" method="post">
-                    <input type="hidden" name="bug" id="bug" class="bug">
-                    <input type="hidden" name="ui" id="ui" class="ui">
-                    <input type="hidden" name="frontend" id="frontend" class="frontend">
-                    <input type="hidden" name="database" id="database" class="database">
-                    <input type="hidden" name="backend" id="backend" class="backend">
+                <form action="?/filterByLabel" method="post" use:enhance>
+                    <input type="hidden" name="bug" id="bug-1" class="bug">
+                    <input type="hidden" name="ui" id="ui-1" class="ui">
+                    <input type="hidden" name="frontend" id="frontend-1" class="frontend">
+                    <input type="hidden" name="database" id="database-1" class="database">
+                    <input type="hidden" name="backend" id="backend-1" class="backend">
+                    <input type="hidden" id="projectIdLabel" name="projectIdLabel" value="{project?._id}">
 
                     <button type="submit">Filter</button>
                 </form>
 
                 <script>
                     function onSelectBug() {
-                        document.getElementById("filter-1").classList.toggle("bug");    
+                        document.getElementById("filter-1").classList.toggle("bug");
+
+                        if(document.getElementById("bug-1").value == "true") {
+                            document.getElementById("bug-1").value = false;
+                        } else {
+                            document.getElementById("bug-1").value = true;
+                        }
                     }
 
                     function onSelectUI() {
-                        document.getElementById("filter-2").classList.toggle("ui");    
+                        document.getElementById("filter-2").classList.toggle("ui");
+                        if(document.getElementById("ui-1").value == "true") {
+                            document.getElementById("ui-1").value = false;
+                        } else {
+                            document.getElementById("ui-1").value = true;
+                        }    
                     }
 
                     function onSelectFrontend() {
-                        document.getElementById("filter-3").classList.toggle("frontend");    
+                        document.getElementById("filter-3").classList.toggle("frontend");
+                        if(document.getElementById("frontend-1").value == "true") {
+                            document.getElementById("frontend-1").value = false;
+                        } else {
+                            document.getElementById("frontend-1").value = true;
+                        }    
                     }
 
                     function onSelectDatabase() {
-                        document.getElementById("filter-4").classList.toggle("database");    
+                        document.getElementById("filter-4").classList.toggle("database");
+                        if(document.getElementById("database-1").value == "true") {
+                            document.getElementById("database-1").value = false;
+                        } else {
+                            document.getElementById("database-1").value = true;
+                        }    
                     }
 
                     function onSelectBackend() {
-                        document.getElementById("filter-5").classList.toggle("backend");    
+                        document.getElementById("filter-5").classList.toggle("backend");
+                        if(document.getElementById("backend-1").value == "true") {
+                            document.getElementById("backend-1").value = false;
+                        } else {
+                            document.getElementById("backend-1").value = true;
+                        }      
                     }
                 </script>
             </div>
@@ -112,18 +144,22 @@
     </div>
 
     <div class="flex flex_wrap flex_center issue_card">
-        {#if project?.issues.length > 0}
-            {#each project?.issues as issue }
-                <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={project?._id} issueId={issue?._id} labels={issue?.labels} deleteAction="?/deleteIssue"/>
-            {/each}
+        {#if form?.filteredValue}
+            {#if form?.filteredValue?.status}
+                {#each form?.filteredValue?.issues as issue}
+                    <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={project?._id} issueId={issue?._id} labels={issue?.labels} deleteAction="?/deleteIssue"/>
+                {/each}
+            {:else}
+                <EmptyComponent content={form?.filteredValue?.msg} />
+            {/if}
+        {:else}
+            {#if project?.issues.length > 0}
+                {#each project?.issues as issue }
+                    <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={project?._id} issueId={issue?._id} labels={issue?.labels} deleteAction="?/deleteIssue"/>
+                {/each}
+            {/if}
         {/if}
     </div>
-
-    <script>
-        function onClickBack() {
-            window.history.back()
-        }
-    </script>
 </section>
 
 <style>

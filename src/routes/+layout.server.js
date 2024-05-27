@@ -10,7 +10,7 @@ export async function load({url}) {
     const isInAnnounce = splitedURL.includes("announcement");
 
     return {
-        activeTab : isInTeams ? "Teams" : isInAnnounce ? "Announcement" : "Dashboard",
+        activeTab : isInTeams ? "Teams" : isInAnnounce ? "Announcements" : "Dashboard",
         isIssuePage : projectId ? true : false
     }
 }   

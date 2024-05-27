@@ -1,4 +1,4 @@
-import { getProjectById, addIssue, deleteIssue } from "$lib/services/projectAPI";
+import { getProjectById, addIssue, deleteIssue, filterIssue } from "$lib/services/projectAPI";
 import { redirect } from "@sveltejs/kit";
 
 export async function load({locals, url}) {
@@ -80,6 +80,49 @@ export const actions = {
 
         if(deleteIssueResp?.status) {
             throw redirect(301, `/issues?projectId=${projectId}`);
+        }
+    },
+
+    filterByLabel: async({request}) => {
+        let formData = await request.formData();
+        console.log(formData, "dataa...");
+
+        const bug = formData.get("bug");
+        const ui = formData.get("ui");
+        const frontend = formData.get("frontend");
+        const database = formData.get("database");
+        const backend = formData.get("backend");
+        const projectId = formData.get("projectIdLabel");
+        console.log(projectId, "projectid.....");
+
+        let labels = [];
+
+        if(bug) {
+            labels.push("Bug")
+        }
+
+        if(ui) {
+            labels.push("UI")
+        }
+
+        if(frontend) {
+            labels.push("Frontend")
+        }
+
+        if(database) {
+            labels.push("Database")
+        }
+
+        if(backend) {
+            labels.push("Backend")
+        }
+        console.log(labels, "label...");
+
+        const filterIssueResp = await filterIssue(projectId, {labels});
+        console.log(filterIssueResp, "filtered dataa....");
+
+        return {
+            "filteredValue": filterIssueResp
         }
     }
 }

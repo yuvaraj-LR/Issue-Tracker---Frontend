@@ -73,7 +73,7 @@
 
     .card {
         max-width: 480px;
-        height: 400px;
+        min-height: 400px;
         padding: 25px;
         border: 1px solid #fff;
         background-color: #fff;
