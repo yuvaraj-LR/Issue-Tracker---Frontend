@@ -1,38 +1,34 @@
-# create-svelte
+# Issue Tracker - Frontend
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Welcome to the Issue Tracker - Frontend repository! This project is a frontend application for tracking and managing issues in software development projects.
 
-## Creating a project
+## About the Project
 
-If you're seeing this, you've probably already done this step. Congrats!
+The Issue Tracker - Frontend is part of a larger project aimed at providing a comprehensive solution for issue tracking and project management in software development. This frontend application is built using modern web technologies to provide users with a responsive and intuitive interface for managing their project issues.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
+  1. Dashboard for viewing project overview and statistics
+  2. Project creation, searching and deletion.
+  3. Issue creation, filtering, and deletion.
+  4. Labeling issues for better organization.
+  5. Responsive design for seamless experience across devices
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+## Getting Started 
+To get started with the Issue Tracker - Frontend project, follow these steps:
 
-## Developing
+## Prerequisites
+  1. Node.js installed on your local machine.
+  2. npm (Node Package Manager) or yarn installed
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Installation
+  1. Clone the repository:
+  ``` git clone https://github.com/yuvaraj-LR/Issue-Tracker---Frontend.git ```
+  2. Navigate to the project directory:
+  ``` cd Issue-Tracker---Frontend ```
+  3. Install dependencies:
+  ``` npm install ```
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Usage
+To start the development server, run:  
+  ``` npm start ```
+This will start the application on http://localhost:5173 by default.
