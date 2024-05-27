@@ -22,9 +22,9 @@ To get started with the Issue Tracker - Frontend project, follow these steps:
 
 ## Installation
   1. Clone the repository:
-  ``` git clone https://github.com/yuvaraj-LR/Issue-Tracker---Frontend.git ```
+  ``` git clone https://github.com/yuvaraj-LR/Issue_Tracker_Frontend.git ```
   2. Navigate to the project directory:
-  ``` cd Issue-Tracker---Frontend ```
+  ``` cd Issue_Tracker_Frontend ```
   3. Install dependencies:
   ``` npm install ```
 
