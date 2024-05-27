@@ -49,7 +49,7 @@
                     <script>
                         function onSelectBug1() {
                             document.getElementById("filter-data-1").classList.toggle("bug");    
-                            if (document.getElementById("bug").value) {
+                            if (document.getElementById("bug").value == "true") {
                                 document.getElementById("bug").value = false;
                             } else {
                                 document.getElementById("bug").value = true;
@@ -58,7 +58,7 @@
     
                         function onSelectUI2() {
                             document.getElementById("filter-data-2").classList.toggle("ui");    
-                            if (document.getElementById("ui").value) {
+                            if (document.getElementById("ui").value = "true") {
                                 document.getElementById("ui").value = false;
                             } else {
                                 document.getElementById("ui").value = true;
@@ -67,7 +67,7 @@
     
                         function onSelectFrontend3() {
                             document.getElementById("filter-data-3").classList.toggle("frontend");   
-                            if (document.getElementById("frontend").value) {
+                            if (document.getElementById("frontend").value = "true") {
                                 document.getElementById("frontend").value = false;
                             } else {
                                 document.getElementById("frontend").value = true;
@@ -76,7 +76,7 @@
     
                         function onSelectDatabase4() {
                             document.getElementById("filter-data-4").classList.toggle("database");
-                            if (document.getElementById("database").value) {
+                            if (document.getElementById("database").value = "true") {
                                 document.getElementById("database").value = false;
                             } else {
                                 document.getElementById("database").value = true;
@@ -85,7 +85,7 @@
     
                         function onSelectBackend5() {
                             document.getElementById("filter-data-5").classList.toggle("backend"); 
-                            if (document.getElementById("backend").value) {
+                            if (document.getElementById("backend").value = "true") {
                                 document.getElementById("backend").value = false;
                             } else {
                                 document.getElementById("backend").value = true;

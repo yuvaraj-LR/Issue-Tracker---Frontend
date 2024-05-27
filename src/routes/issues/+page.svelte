@@ -150,7 +150,7 @@
                     <Card isIssue=true projectName={issue?.name} creationDate={issue?.timestamp} authorName={issue?.author} projectDesp={issue?.description} projectId={project?._id} issueId={issue?._id} labels={issue?.labels} deleteAction="?/deleteIssue"/>
                 {/each}
             {:else}
-                <EmptyComponent content={form?.filteredValue?.msg} />
+                <EmptyComponent content={form?.filteredValue?.error} />
             {/if}
         {:else}
             {#if project?.issues.length > 0}
